@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Changan Peak View RV | HaniGo</title>
+
+  <meta
+    name="description"
+    content="Аренда автодома Changan Peak View RV для свободных и комфортных путешествий."
+  >
+  <meta name="theme-color" content="#173c32">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <button
+    class="page-backdrop"
+    id="page-backdrop"
+    type="button"
+    aria-label="Закрыть открытое окно"
+    hidden
+  ></button>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="HaniGo — на главную">
+        HaniGo
+      </a>
+
+      <button
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="header-panel"
+      >
+        Меню
+      </button>
+
+      <div class="header-panel" id="header-panel">
+        <nav class="navigation" aria-label="Основная навигация">
+          <button
+            class="navigation__button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="camper-panel"
+            data-open-panel="camper-panel"
+          >
+            Выбрать автодом
+            <span aria-hidden="true">⌄</span>
+          </button>
+
+          <button
+            class="navigation__button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="requirements-panel"
+            data-open-panel="requirements-panel"
+          >
+            Требования к арендатору
+            <span aria-hidden="true">⌄</span>
+          </button>
+
+          <button
+            class="navigation__button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history-panel"
+            data-open-panel="history-panel"
+          >
+            История создания
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </nav>
+
+        <div class="manager-links" aria-label="Связь с менеджером">
+          <a
+            class="manager-link manager-link--phone"
+            href="tel:89651398988"
+          >
+            <span aria-hidden="true">☎</span>
+            Позвонить
+          </a>
+
+          <a
+            class="manager-link manager-link--avito"
+            href="https://www.avito.ru/moskva/predlozheniya_uslug/avtodom_dlya_romanticheskih_svidaniy_8222107105?utm_campaign=native&utm_medium="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Связаться на Авито
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-label="Главный экран">
+      <div class="container hero__inner">
+        <div class="video-window">
+          <video
+            id="hero-video"
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/images/video-poster.svg"
+            aria-label="Видео об автодоме Changan Peak View RV"
+          >
+            <source src="assets/video/hanygo.mp4" type="video/mp4">
+            <source src="assets/video/hanygo.webm" type="video/webm">
+
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
+
+          <button
+            class="video-play"
+            id="video-play"
+            type="button"
+            aria-label="Запустить видео"
+            hidden
+          >
+            ▶
+          </button>
+
+          <p class="video-message" id="video-message" hidden>
+            Видео не загрузилось. Проверьте файлы в папке assets/video.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section
+    class="overlay-panel overlay-panel--camper"
+    id="camper-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="camper-title"
+    tabindex="-1"
+    hidden
+  >
+    <header class="overlay-panel__header">
+      <div>
+        <p class="panel-label">Автодом HaniGo</p>
+        <h2 id="camper-title">Changan Peak View RV</h2>
+      </div>
+
+      <button
+        class="panel-close"
+        type="button"
+        data-close-panel
+        aria-label="Закрыть информацию об автодоме"
+      >
+        ×
+      </button>
+    </header>
+
+    <div class="camper-intro">
+      <div class="carousel" aria-label="Фотографии автодома">
+        <div class="carousel__viewport">
+          <figure
+            class="carousel__slide"
+            data-carousel-slide
+            data-fallback="Добавьте фотографию camper-1.jpg"
+          >
+            <img
+              src="assets/images/camper-1.jpg"
+              alt="Внешний вид Changan Peak View RV"
+            >
+          </figure>
+
+          <figure
+            class="carousel__slide"
+            data-carousel-slide
+            data-fallback="Добавьте фотографию camper-2.jpg"
+            hidden
+          >
+            <img
+              src="assets/images/camper-2.jpg"
+              alt="Интерьер Changan Peak View RV"
+            >
+          </figure>
+
+          <figure
+            class="carousel__slide"
+            data-carousel-slide
+            data-fallback="Добавьте фотографию camper-3.jpg"
+            hidden
+          >
+            <img
+              src="assets/images/camper-3.jpg"
+              alt="Спальная зона автодома"
+            >
+          </figure>
+
+          <figure
+            class="carousel__slide"
+            data-carousel-slide
+            data-fallback="Добавьте фотографию camper-4.jpg"
+            hidden
+          >
+            <img
+              src="assets/images/camper-4.jpg"
+              alt="Кухонная зона автодома"
+            >
+          </figure>
+
+          <button
+            class="carousel__button carousel__button--previous"
+            id="carousel-previous"
+            type="button"
+            aria-label="Предыдущая фотография"
+          >
+            ←
+          </button>
+
+          <button
+            class="carousel__button carousel__button--next"
+            id="carousel-next"
+            type="button"
+            aria-label="Следующая фотография"
+          >
+            →
+          </button>
+
+          <div
+            class="carousel__counter"
+            id="carousel-counter"
+            aria-live="polite"
+          >
+            1 / 4
+          </div>
+        </div>
+      </div>
+
+      <div class="camper-summary">
+        <p class="panel-label">Дом для новых маршрутов</p>
+        <h3>Changan Peak View RV</h3>
+
+        <p class="camper-summary__description">
+          Просторный и автономный автодом для путешествий
+          семьёй или компанией до четырёх человек.
+        </p>
+
+        <ul class="quick-facts">
+          <li><span>Двигатель</span><strong>2,0 Turbo</strong></li>
+          <li><span>Мощность</span><strong>226 л. с.</strong></li>
+          <li><span>Привод</span><strong>Полный</strong></li>
+          <li><span>Пассажиры</span><strong>До 4 человек</strong></li>
+        </ul>
+
+        <div class="camper-contact">
+          <a
+            class="action action--primary"
+            href="tel:89651398988"
+          >
+            Позвонить менеджеру
+          </a>
+
+          <a
+            class="action action--secondary"
+            href="https://www.avito.ru/moskva/predlozheniya_uslug/avtodom_dlya_romanticheskih_svidaniy_8222107105?utm_campaign=native&utm_medium="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Связаться на Авито ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="camper-tabs">
+      <div
+        class="camper-tabs__buttons"
+        role="tablist"
+        aria-label="Информация об автодоме"
+      >
+        <button
+          class="camper-tab is-active"
+          id="specifications-tab"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="specifications-content"
+          data-tab="specifications-content"
+        >
+          Характеристики
+        </button>
+
+        <button
+          class="camper-tab"
+          id="prices-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="prices-content"
+          data-tab="prices-content"
+          tabindex="-1"
+        >
+          Цены и условия
+        </button>
+      </div>
+
+      <section
+        class="camper-tab-panel"
+        id="specifications-content"
+        role="tabpanel"
+        aria-labelledby="specifications-tab"
+      >
+        <div class="specifications-grid">
+          <article class="specification-card">
+            <span class="card-number">01</span>
+            <h3>Двигатель и управление</h3>
+            <p>
+              Двигатель 2,0 Turbo мощностью 226 л. с.,
+              8-ступенчатая автоматическая коробка передач
+              и интеллектуальный полный привод с выбором режимов.
+            </p>
+            <p>
+              Дорожного просвета достаточно для лёгкого бездорожья.
+              Объём топливного бака — 80 литров.
+            </p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">02</span>
+            <h3>Комфорт и безопасность</h3>
+            <p>
+              Круиз-контроль, система кругового обзора,
+              трёхзонный климат-контроль, обогрев и вентиляция
+              сидений, Apple CarPlay и Android Auto.
+            </p>
+            <p>Автодом оборудован шестью подушками безопасности.</p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">03</span>
+            <h3>Просторный салон</h3>
+            <p>
+              Продуманная эргономика позволяет с комфортом
+              разместиться семье или компании из четырёх человек.
+            </p>
+            <p>В салоне установлены Smart TV и саундбар.</p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">04</span>
+            <h3>Санузел</h3>
+            <p>
+              Душевая кабина с люком, кассетный туалет,
+              электрический отопитель и раковина с горячей водой.
+            </p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">05</span>
+            <h3>Кухня и бытовая техника</h3>
+            <p>
+              Комплект посуды, холодильник, вытяжка,
+              индукционная плита, микроволновая печь,
+              кондиционер и стиральная машина до 3 кг.
+            </p>
+            <p>
+              Предусмотрены кран для питьевой воды
+              и горячая вода в кухонной зоне.
+            </p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">06</span>
+            <h3>Автономность</h3>
+            <p>
+              Литиевые батареи ёмкостью 400 А·ч,
+              солнечные панели мощностью 800 Вт
+              и инвертор мощностью 5000 Вт.
+            </p>
+            <p>
+              Дизельное отопление, кассетный биотуалет,
+              бак чистой воды на 300 литров, бак серой воды
+              на 60 литров и датчики задымления.
+            </p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">07</span>
+            <h3>Внешнее оснащение</h3>
+            <p>
+              Маркиза с электроприводом, уличное освещение,
+              камеры видеонаблюдения, уличный душ
+              и автономная дизельная кухня.
+            </p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">08</span>
+            <h3>Спальные места</h3>
+            <p>
+              Автодом рассчитан на четырёх человек
+              и оборудован четырьмя ремнями безопасности.
+            </p>
+            <ul class="specification-list">
+              <li>Спальное место над кабиной — 200 × 130 см</li>
+              <li>Спальное место в обеденной зоне — 190 × 110 см</li>
+            </ul>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">09</span>
+            <h3>Дополнительное оснащение</h3>
+            <p>
+              В комплект аренды входит кемпинговая мебель:
+              стол и стулья.
+            </p>
+            <p>
+              Путешествия с животными маленьких и средних пород
+              возможны по предварительному согласованию.
+            </p>
+          </article>
+
+          <article class="specification-card">
+            <span class="card-number">10</span>
+            <h3>Топливо</h3>
+            <p>
+              Автодом выдаётся с полным баком бензина.
+              Вернуть автомобиль необходимо также
+              с полностью заправленным баком.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="camper-tab-panel"
+        id="prices-content"
+        role="tabpanel"
+        aria-labelledby="prices-tab"
+        hidden
+      >
+        <div class="season-grid">
+          <article class="price-card">
+            <p class="panel-label">Апрель — октябрь</p>
+            <h3>Тёплый сезон</h3>
+            <ul class="price-list">
+              <li><span>От 3 до 6 суток</span><strong>22 000 ₽/сутки</strong></li>
+              <li><span>От 7 до 13 суток</span><strong>20 000 ₽/сутки</strong></li>
+              <li><span>От 14 до 30 суток</span><strong>18 000 ₽/сутки</strong></li>
+            </ul>
+          </article>
+
+          <article class="price-card price-card--dark">
+            <p class="panel-label">Ноябрь — март</p>
+            <h3>Прохладный сезон</h3>
+            <ul class="price-list">
+              <li><span>От 3 до 6 суток</span><strong>20 000 ₽/сутки</strong></li>
+              <li><span>От 7 до 13 суток</span><strong>17 000 ₽/сутки</strong></li>
+              <li><span>От 14 до 30 суток</span><strong>14 000 ₽/сутки</strong></li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="weekend-price">
+          <div>
+            <p class="panel-label">Специальное предложение</p>
+            <h3>Тариф выходного дня</h3>
+            <p>Поездка с пятницы по воскресенье.</p>
+          </div>
+
+          <div class="weekend-price__values">
+            <div><span>Апрель — октябрь</span><strong>40 000 ₽</strong></div>
+            <div><span>Ноябрь — март</span><strong>30 000 ₽</strong></div>
+          </div>
+        </article>
+
+        <div class="conditions-grid">
+          <article class="condition-card">
+            <span>Сервисный сбор</span>
+            <strong>10 000 ₽</strong>
+            <p>
+              Автодом передаётся чистым и обработанным,
+              с заправленными техническими и бытовыми жидкостями,
+              а также с комплектом постельного белья.
+            </p>
+          </article>
+
+          <article class="condition-card">
+            <span>Залог</span>
+            <strong>70 000 ₽</strong>
+            <p>
+              60 000 ₽ возвращаются после сдачи автодома
+              при отсутствии повреждений. Оставшиеся 10 000 ₽
+              возвращаются через 14 дней при отсутствии штрафов.
+            </p>
+          </article>
+
+          <article class="condition-card">
+            <span>Включённый пробег</span>
+            <strong>400 км/сутки</strong>
+            <p>
+              Пробег суммируется за весь срок аренды.
+              Стоимость перепробега — 50 ₽ за километр.
+            </p>
+          </article>
+        </div>
+
+        <div class="prices-contact">
+          <div>
+            <h3>Готовы обсудить путешествие?</h3>
+            <p>
+              Менеджер ответит на вопросы
+              и поможет уточнить условия аренды.
+            </p>
+          </div>
+
+          <div class="camper-contact">
+            <a class="action action--light" href="tel:89651398988">
+              Позвонить менеджеру
+            </a>
+            <a
+              class="action action--outline-light"
+              href="https://www.avito.ru/moskva/predlozheniya_uslug/avtodom_dlya_romanticheskih_svidaniy_8222107105?utm_campaign=native&utm_medium="
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Связаться на Авито ↗
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section
+    class="overlay-panel overlay-panel--compact"
+    id="requirements-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="requirements-title"
+    tabindex="-1"
+    hidden
+  >
+    <header class="overlay-panel__header">
+      <div>
+        <p class="panel-label">Аренда автодома</p>
+        <h2 id="requirements-title">Требования к вам</h2>
+      </div>
+      <button
+        class="panel-close"
+        type="button"
+        data-close-panel
+        aria-label="Закрыть требования к арендатору"
+      >
+        ×
+      </button>
+    </header>
+
+    <ul class="requirements-list">
+      <li>Категория ВУ — «В»;</li>
+      <li>Гражданство РФ;</li>
+      <li>Возраст от 25 лет;</li>
+      <li>Стаж вождения от 5 лет.</li>
+    </ul>
+  </section>
+
+  <article
+    class="overlay-panel overlay-panel--history"
+    id="history-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="history-title"
+    tabindex="-1"
+    hidden
+  >
+    <header class="overlay-panel__header">
+      <div>
+        <p class="panel-label">История проекта HaniGo</p>
+        <h2 id="history-title">
+          Как появился наш «ХаниГоу», или история сладкой свободы
+        </h2>
+      </div>
+      <button
+        class="panel-close"
+        type="button"
+        data-close-panel
+        aria-label="Закрыть историю создания"
+      >
+        ×
+      </button>
+    </header>
+
+    <div class="story">
+      <p>
+        Всё началось с одного летнего путешествия в новом статусе
+        хозяев собаки по имени Хани. Мы взяли его щенком, и с тех пор
+        он стал душой всей семьи, друзей и соседей.
+      </p>
+      <p>
+        Но путешествовать с собакой оказалось непросто. Перелёты,
+        поезда — везде требования и стресс. Мы пробовали снимать жильё,
+        но постоянно слышали: «С животными нельзя». Отели — тем более:
+        практически везде запреты и, конечно, доплаты.
+      </p>
+      <p>
+        Мы почти отчаялись, пока однажды не решили арендовать автодом
+        на выходные. Это было не просто удобно — это было волшебно:
+        просыпаешься, открываешь дверь, а там хвойный лес, море, горы,
+        и всё это под тёплыми солнечными лучами. Никто не торопит,
+        никаких запретов и выездов в 13:00.
+      </p>
+      <p>
+        Однако найти хороший автодом оказалось сложно: старые машины,
+        непонятные цены, множество дополнительных платежей и бронь
+        через третьи руки. Мы поняли, что хотим сделать автотуризм
+        проще, честнее и доступнее.
+      </p>
+      <p>
+        Так родилась идея «ХаниГоу», а название пришло само собой —
+        в честь нашего Хани. Он стал символом сладкой свободы
+        и радости движения.
+      </p>
+      <p>
+        Хани (Honey) — наш сладкий корги. Это мёд, что-то тёплое
+        и родное. Гоу (Go) — движение вперёд. «ХаниГоу» — это
+        «сладко едем».
+      </p>
+      <p>
+        Это характер нашей собаки: он всегда готов сорваться в путь,
+        обнюхать каждую тропинку и встретить новый день с виляющим
+        хвостом. Ну и, конечно, знакомиться и обретать новых друзей.
+        А ещё у нас фамилия Пасечник — и здесь связь понятна без слов.
+      </p>
+      <p>
+        Мы купили автодом и начали сдавать его в аренду. С первого же
+        дня у нас появилось правило: «Приезжайте с собаками!» Никаких
+        доплат за питомцев и никаких запретов. Именно Хани показал нам,
+        что лучший отдых — это когда рядом твой четвероногий друг
+        и нет никаких границ.
+      </p>
+      <p>
+        Первые отзывы стали для нас высшей наградой. Люди возвращались
+        и рассказывали, как провели лучший отпуск в жизни.
+      </p>
+      <p>
+        Хани живёт с нами и каждый раз бежит встречать гостей у
+        автодома. Он уверен, что все приезжают именно к нему — и,
+        честно говоря, возможно, так оно и есть. Ведь именно он научил
+        нас главному: дом там, где рядом те, кого любишь, даже если
+        этот дом на колёсах и едет по бесконечной дороге.
+      </p>
+      <p>
+        Сегодня «ХаниГоу» — молодой, небольшой, но душевный проект
+        HaniGo, созданный благодаря рыжей собаке с большим сердцем.
+        Мы всё ещё радуемся каждой поездке, как Хани радуется каждой
+        прогулке и вкусняшке. И будем счастливы, если вы разделите
+        с нами эту радость — вместе со своими питомцами, конечно 🐾
+      </p>
+      <p>
+        Мы не гонимся за количеством машин. Нам важны качество сервиса
+        и впечатления. У нас честные цены и люди, которые любят своё
+        дело. Мы берём на себя все мелочи, чтобы вы могли наслаждаться
+        дорогой и свободой.
+      </p>
+      <p>
+        Наш автодом — это не просто прокат. Это состояние души.
+        Мы верим, что настоящее путешествие начинается тогда,
+        когда ты готов свернуть с маршрута ради красивой закатной
+        дороги. И мы будем рядом, чтобы сделать это путешествие
+        по-настоящему сладким!
+      </p>
+    </div>
+  </article>
+
+  <script src="script.js"></script>
+</body>
+</html>
