@@ -40,71 +40,70 @@
         ХаниГоу
       </a>
 
-      <button
-        class="mobile-menu-button"
-        id="mobile-menu-button"
-        type="button"
-        aria-expanded="false"
-        aria-controls="header-panel"
-      >
-        Меню
-      </button>
+      <nav class="navigation" aria-label="Основная навигация">
+        <button
+          class="navigation__button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="camper-panel"
+          data-open-panel="camper-panel"
+        >
+          Автодом
+          <span aria-hidden="true">⌄</span>
+        </button>
 
-      <div class="header-panel" id="header-panel">
-        <nav class="navigation" aria-label="Основная навигация">
-          <button
-            class="navigation__button"
-            type="button"
-            aria-expanded="false"
-            aria-controls="camper-panel"
-            data-open-panel="camper-panel"
-          >
-            Выбрать автодом
-            <span aria-hidden="true">⌄</span>
-          </button>
+        <button
+          class="navigation__button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="prices-panel"
+          data-open-panel="prices-panel"
+        >
+          Цены и условия
+          <span aria-hidden="true">⌄</span>
+        </button>
 
-          <button
-            class="navigation__button"
-            type="button"
-            aria-expanded="false"
-            aria-controls="requirements-panel"
-            data-open-panel="requirements-panel"
-          >
-            Требования к арендатору
-            <span aria-hidden="true">⌄</span>
-          </button>
+        <button
+          class="navigation__button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="requirements-panel"
+          data-open-panel="requirements-panel"
+        >
+          Требования к арендатору
+          <span aria-hidden="true">⌄</span>
+        </button>
 
-          <button
-            class="navigation__button"
-            type="button"
-            aria-expanded="false"
-            aria-controls="history-panel"
-            data-open-panel="history-panel"
-          >
-            История создания
-            <span aria-hidden="true">⌄</span>
-          </button>
-        </nav>
+        <button
+          class="navigation__button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="history-panel"
+          data-open-panel="history-panel"
+        >
+          История создания
+          <span aria-hidden="true">⌄</span>
+        </button>
+      </nav>
 
-        <div class="manager-links" aria-label="Связь с менеджером">
-          <a
-            class="manager-link manager-link--phone"
-            href="tel:89651398988"
-          >
-            <span aria-hidden="true">☎</span>
-            Позвонить
-          </a>
+      <div class="manager-links" aria-label="Связь с менеджером">
+        <a
+          class="manager-link manager-link--phone"
+          href="tel:89651398988"
+        >
+          <span aria-hidden="true">☎</span>
+          Позвонить
+        </a>
 
-          <a
-            class="manager-link manager-link--avito"
-            href="https://www.avito.ru/mytischi/predlozheniya_uslug/arenda_avtodoma_8248594794?utm_campaign=native&amp;utm_medium=item_page_ios&amp;utm_s="
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Связаться на Авито
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+        <a
+          class="manager-link manager-link--avito"
+          href="https://www.avito.ru/mytischi/predlozheniya_uslug/arenda_avtodoma_8248594794?utm_campaign=native&amp;utm_medium=item_page_ios&amp;utm_s="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Авито
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
   </header>
@@ -113,33 +112,50 @@
     <section class="hero" id="top" aria-label="Главный экран">
       <div class="container hero__inner">
         <div class="video-window">
-          <video
-            id="hero-video"
-            controls
-            muted
-            loop
-            playsinline
-            preload="none"
-            poster="assets/images/video-poster.svg"
-            aria-label="Видео об автодоме Changan Peak View RV"
-          >
-            <source src="assets/video/hanygo.mp4" type="video/mp4">
+          <div class="video-stage" id="video-stage">
+            <img
+              class="video-poster"
+              id="video-poster"
+              src="assets/images/video-poster.svg"
+              alt="Видео об автодоме Changan Peak View RV"
+            >
 
-            Ваш браузер не поддерживает воспроизведение видео.
-          </video>
+            <iframe
+              class="video-frame"
+              id="hero-video-frame"
+              title="Видео об автодоме Changan Peak View RV"
+              data-src="https://vkvideo.ru/video_ext.php?oid=-241064727&amp;id=456239017&amp;hd=2&amp;autoplay=1"
+              allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              hidden
+            ></iframe>
 
-          <button
-            class="video-play"
-            id="video-play"
-            type="button"
-            aria-label="Запустить видео"
-          >
-            ▶
-          </button>
+            <button
+              class="video-play"
+              id="video-play"
+              type="button"
+              aria-label="Запустить видео в VK Видео"
+            >
+              ▶
+            </button>
+          </div>
 
-          <p class="video-message" id="video-message" hidden>
-            Видео не загрузилось. Проверьте файлы в папке assets/video.
+          <p class="video-alternatives">
+            Если проигрыватель не открылся,
+            <a href="https://vkvideo.ru/video-241064727_456239017" target="_blank" rel="noopener noreferrer">
+              посмотрите видео во ВКонтакте
+            </a>
+            или
+            <a href="assets/video/hanygo.mp4">откройте облегчённый MP4</a>.
           </p>
+
+          <noscript>
+            <p class="video-alternatives">
+              Для просмотра включите JavaScript или
+              <a href="https://vkvideo.ru/video-241064727_456239017">откройте видео во ВКонтакте</a>.
+            </p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -292,43 +308,10 @@
       </div>
     </div>
 
-    <div class="camper-tabs">
-      <div
-        class="camper-tabs__buttons"
-        role="tablist"
-        aria-label="Информация об автодоме"
-      >
-        <button
-          class="camper-tab is-active"
-          id="specifications-tab"
-          type="button"
-          role="tab"
-          aria-selected="true"
-          aria-controls="specifications-content"
-          data-tab="specifications-content"
-        >
-          Характеристики
-        </button>
-
-        <button
-          class="camper-tab"
-          id="prices-tab"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="prices-content"
-          data-tab="prices-content"
-          tabindex="-1"
-        >
-          Цены и условия
-        </button>
-      </div>
-
+    <div class="camper-details">
       <section
-        class="camper-tab-panel"
-        id="specifications-content"
-        role="tabpanel"
-        aria-labelledby="specifications-tab"
+        class="camper-details__content"
+        aria-labelledby="camper-title"
       >
         <div class="specifications-grid">
           <article class="specification-card">
@@ -452,13 +435,35 @@
         </div>
       </section>
 
-      <section
-        class="camper-tab-panel"
-        id="prices-content"
-        role="tabpanel"
-        aria-labelledby="prices-tab"
-        hidden
+    </div>
+  </section>
+
+  <section
+    class="overlay-panel overlay-panel--prices"
+    id="prices-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="prices-title"
+    tabindex="-1"
+    hidden
+  >
+    <header class="overlay-panel__header">
+      <div>
+        <p class="panel-label">Аренда автодома ХаниГоу</p>
+        <h2 id="prices-title">Цены и условия</h2>
+      </div>
+
+      <button
+        class="panel-close"
+        type="button"
+        data-close-panel
+        aria-label="Закрыть цены и условия"
       >
+        ×
+      </button>
+    </header>
+
+    <div class="prices-panel__content">
         <div class="season-grid">
           <article class="price-card">
             <p class="panel-label">Апрель — октябрь</p>
@@ -548,7 +553,6 @@
             </a>
           </div>
         </div>
-      </section>
     </div>
   </section>
 

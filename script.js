@@ -5,9 +5,6 @@ const overlayPanels = [...document.querySelectorAll(".overlay-panel")];
 const panelCloseButtons = [...document.querySelectorAll("[data-close-panel]")];
 const pageBackdrop = document.querySelector("#page-backdrop");
 
-const mobileMenuButton = document.querySelector("#mobile-menu-button");
-const headerPanel = document.querySelector("#header-panel");
-
 let activePanel = null;
 let lastPanelTrigger = null;
 
@@ -15,15 +12,6 @@ function focusableElements(container) {
   return [...container.querySelectorAll(
     "a[href], button:not([disabled]), video[controls], [tabindex]:not([tabindex='-1'])"
   )].filter((element) => !element.hidden && element.offsetParent !== null);
-}
-
-function closeMobileMenu() {
-  if (!mobileMenuButton || !headerPanel) {
-    return;
-  }
-
-  mobileMenuButton.setAttribute("aria-expanded", "false");
-  headerPanel.classList.remove("is-open");
 }
 
 function closePanel({ returnFocus = true } = {}) {
@@ -57,7 +45,6 @@ function openPanel(panelId, trigger) {
   }
 
   closePanel({ returnFocus: false });
-  closeMobileMenu();
 
   activePanel = panel;
   lastPanelTrigger = trigger;
@@ -96,31 +83,10 @@ panelCloseButtons.forEach((button) => {
 
 pageBackdrop?.addEventListener("click", () => closePanel());
 
-mobileMenuButton?.addEventListener("click", () => {
-  const menuIsOpen = mobileMenuButton.getAttribute("aria-expanded") === "true";
-
-  mobileMenuButton.setAttribute("aria-expanded", String(!menuIsOpen));
-  headerPanel?.classList.toggle("is-open", !menuIsOpen);
-});
-
-document.addEventListener("click", (event) => {
-  if (window.innerWidth > 1240 || !headerPanel?.classList.contains("is-open")) {
-    return;
-  }
-
-  const clickedInsideHeader = event.target.closest(".header__inner");
-
-  if (!clickedInsideHeader) {
-    closeMobileMenu();
-  }
-});
-
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     if (activePanel) {
       closePanel();
-    } else {
-      closeMobileMenu();
     }
 
     return;
@@ -200,109 +166,26 @@ carouselSlides.forEach((slide) => {
 
 showSlide(0);
 
-/* Вкладки характеристик и цен */
+/* Проигрыватель VK Видео загружается только после действия пользователя. */
 
-const camperTabs = [...document.querySelectorAll("[data-tab]")];
-const camperTabPanels = [...document.querySelectorAll(".camper-tab-panel")];
-
-function activateTab(panelId, { focus = false } = {}) {
-  camperTabs.forEach((tab) => {
-    const isActive = tab.dataset.tab === panelId;
-
-    tab.classList.toggle("is-active", isActive);
-    tab.setAttribute("aria-selected", String(isActive));
-    tab.tabIndex = isActive ? 0 : -1;
-
-    if (isActive && focus) {
-      tab.focus();
-    }
-  });
-
-  camperTabPanels.forEach((panel) => {
-    panel.hidden = panel.id !== panelId;
-  });
-}
-
-camperTabs.forEach((tab, tabIndex) => {
-  tab.addEventListener("click", () => {
-    activateTab(tab.dataset.tab);
-  });
-
-  tab.addEventListener("keydown", (event) => {
-    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
-      return;
-    }
-
-    event.preventDefault();
-
-    let nextIndex = tabIndex;
-
-    if (event.key === "ArrowLeft") {
-      nextIndex = (tabIndex - 1 + camperTabs.length) % camperTabs.length;
-    }
-
-    if (event.key === "ArrowRight") {
-      nextIndex = (tabIndex + 1) % camperTabs.length;
-    }
-
-    if (event.key === "Home") {
-      nextIndex = 0;
-    }
-
-    if (event.key === "End") {
-      nextIndex = camperTabs.length - 1;
-    }
-
-    activateTab(camperTabs[nextIndex].dataset.tab, { focus: true });
-  });
-});
-
-activateTab("specifications-content");
-
-/* Видео загружается только после действия пользователя. */
-
-const heroVideo = document.querySelector("#hero-video");
+const heroVideoFrame = document.querySelector("#hero-video-frame");
+const videoPoster = document.querySelector("#video-poster");
 const videoPlay = document.querySelector("#video-play");
-const videoMessage = document.querySelector("#video-message");
 
-heroVideo?.addEventListener("playing", () => {
-  if (videoPlay) {
-    videoPlay.hidden = true;
-  }
-
-  if (videoMessage) {
-    videoMessage.hidden = true;
-  }
-});
-
-heroVideo?.addEventListener("pause", () => {
-  if (videoPlay && heroVideo.currentTime === 0) {
-    videoPlay.hidden = false;
-  }
-});
-
-heroVideo?.addEventListener("error", () => {
-  if (videoPlay) {
-    videoPlay.hidden = true;
-  }
-
-  if (videoMessage) {
-    videoMessage.hidden = false;
-  }
-});
-
-videoPlay?.addEventListener("click", async () => {
-  if (!heroVideo) {
+videoPlay?.addEventListener("click", () => {
+  if (!heroVideoFrame || !heroVideoFrame.dataset.src) {
     return;
   }
 
-  heroVideo.muted = true;
-
-  try {
-    await heroVideo.play();
-  } catch (error) {
-    if (videoMessage) {
-      videoMessage.hidden = false;
-    }
+  if (!heroVideoFrame.src) {
+    heroVideoFrame.src = heroVideoFrame.dataset.src;
   }
+
+  heroVideoFrame.hidden = false;
+
+  if (videoPoster) {
+    videoPoster.hidden = true;
+  }
+
+  videoPlay.hidden = true;
 });
