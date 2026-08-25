@@ -20,7 +20,7 @@
     fetchpriority="high"
   >
 
-  <link rel="stylesheet" href="styles.css?v=20260825-3">
+  <link rel="stylesheet" href="styles.css?v=20260825-4">
 </head>
 
 <body>
@@ -113,36 +113,22 @@
       <div class="container hero__inner">
         <div class="video-window">
           <div class="video-stage" id="video-stage">
-            <video
-              id="hero-video"
-              controls
-              playsinline
-              preload="none"
-              poster="assets/images/video-poster.svg"
-              aria-label="Видео об автодоме Changan Peak View RV"
-            >
-              <source src="assets/video/hanygo.mp4?v=20260825-3" type="video/mp4">
-
-              Ваш браузер не поддерживает воспроизведение видео.
-            </video>
-
-            <button
-              class="video-play"
-              id="video-play"
-              type="button"
-              aria-label="Запустить видео"
-            >
-              ▶
-            </button>
+            <iframe
+              class="vk-video-frame"
+              src="https://vk.ru/video_ext.php?oid=-241064727&amp;id=456239017&amp;autoplay=1"
+              title="Видео об автодоме Changan Peak View RV"
+              loading="lazy"
+              allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
+              allowfullscreen
+            ></iframe>
           </div>
 
           <p class="video-alternatives">
-            Если видео не запускается,
+            Видео воспроизводится через VK Видео. Если плеер не открывается,
             <a href="https://vkvideo.ru/video-241064727_456239017" target="_blank" rel="noopener noreferrer">
-              откройте его в VK Видео
+              откройте ролик на сайте VK Видео
             </a>
-            или
-            <a href="assets/video/hanygo.mp4?v=20260825-3">скачайте облегчённый MP4</a>.
+            .
           </p>
 
           <noscript>
@@ -691,6 +677,6 @@
     </div>
   </article>
 
-  <script src="script.js?v=20260825-3"></script>
+  <script src="script.js?v=20260825-4"></script>
 </body>
 </html>

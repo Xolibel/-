@@ -246,30 +246,13 @@ video:focus-visible,
   position: relative;
 }
 
-.video-stage video {
+.vk-video-frame {
   width: 100%;
   aspect-ratio: 16 / 9;
   display: block;
-  object-fit: cover;
   background: #0d1713;
-  border-radius: 18px;
-}
-
-.video-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 78px;
-  height: 78px;
-  padding: 0 0 0 5px;
-  color: var(--color-primary);
-  font-size: 28px;
-  background: rgba(245, 241, 232, 0.94);
   border: 0;
-  border-radius: 50%;
-  box-shadow: 0 12px 36px rgba(8, 25, 20, 0.28);
-  cursor: pointer;
-  transform: translate(-50%, -50%);
+  border-radius: 18px;
 }
 
 .video-alternatives {
@@ -928,14 +911,8 @@ video:focus-visible,
     border-radius: 18px;
   }
 
-  .video-stage video {
+  .vk-video-frame {
     border-radius: 13px;
-  }
-
-  .video-play {
-    width: 62px;
-    height: 62px;
-    font-size: 22px;
   }
 
   .overlay-panel,
