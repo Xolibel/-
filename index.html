@@ -20,7 +20,7 @@
     fetchpriority="high"
   >
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260825-3">
 </head>
 
 <body>
@@ -113,41 +113,36 @@
       <div class="container hero__inner">
         <div class="video-window">
           <div class="video-stage" id="video-stage">
-            <img
-              class="video-poster"
-              id="video-poster"
-              src="assets/images/video-poster.svg"
-              alt="Видео об автодоме Changan Peak View RV"
+            <video
+              id="hero-video"
+              controls
+              playsinline
+              preload="none"
+              poster="assets/images/video-poster.svg"
+              aria-label="Видео об автодоме Changan Peak View RV"
             >
+              <source src="assets/video/hanygo.mp4?v=20260825-3" type="video/mp4">
 
-            <iframe
-              class="video-frame"
-              id="hero-video-frame"
-              title="Видео об автодоме Changan Peak View RV"
-              data-src="https://vkvideo.ru/video_ext.php?oid=-241064727&amp;id=456239017&amp;hd=2&amp;autoplay=1"
-              allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              hidden
-            ></iframe>
+              Ваш браузер не поддерживает воспроизведение видео.
+            </video>
 
             <button
               class="video-play"
               id="video-play"
               type="button"
-              aria-label="Запустить видео в VK Видео"
+              aria-label="Запустить видео"
             >
               ▶
             </button>
           </div>
 
           <p class="video-alternatives">
-            Если проигрыватель не открылся,
+            Если видео не запускается,
             <a href="https://vkvideo.ru/video-241064727_456239017" target="_blank" rel="noopener noreferrer">
-              посмотрите видео во ВКонтакте
+              откройте его в VK Видео
             </a>
             или
-            <a href="assets/video/hanygo.mp4">откройте облегчённый MP4</a>.
+            <a href="assets/video/hanygo.mp4?v=20260825-3">скачайте облегчённый MP4</a>.
           </p>
 
           <noscript>
@@ -696,6 +691,6 @@
     </div>
   </article>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260825-3"></script>
 </body>
 </html>

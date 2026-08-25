@@ -246,21 +246,13 @@ video:focus-visible,
   position: relative;
 }
 
-.video-poster,
-.video-frame {
+.video-stage video {
   width: 100%;
   aspect-ratio: 16 / 9;
   display: block;
+  object-fit: cover;
   background: #0d1713;
   border-radius: 18px;
-}
-
-.video-poster {
-  object-fit: cover;
-}
-
-.video-frame {
-  border: 0;
 }
 
 .video-play {
@@ -292,6 +284,12 @@ video:focus-visible,
   color: var(--color-white);
   font-weight: 700;
   text-underline-offset: 3px;
+}
+
+.video-alternatives.is-emphasized {
+  padding: 10px 12px;
+  background: rgba(156, 58, 38, 0.9);
+  border-radius: 10px;
 }
 
 /* ÐžÐ±Ñ‰Ð¸Ðµ Ð¼Ð¾Ð´Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¾ÐºÐ½Ð° */
@@ -930,8 +928,7 @@ video:focus-visible,
     border-radius: 18px;
   }
 
-  .video-poster,
-  .video-frame {
+  .video-stage video {
     border-radius: 13px;
   }
 

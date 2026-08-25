@@ -116,12 +116,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 1240) {
-    closeMobileMenu();
-  }
-});
-
 /* Карусель фотографий */
 
 const carouselSlides = [...document.querySelectorAll("[data-carousel-slide]")];
@@ -166,26 +160,40 @@ carouselSlides.forEach((slide) => {
 
 showSlide(0);
 
-/* Проигрыватель VK Видео загружается только после действия пользователя. */
+/* Видео загружается только после действия пользователя. */
 
-const heroVideoFrame = document.querySelector("#hero-video-frame");
-const videoPoster = document.querySelector("#video-poster");
+const heroVideo = document.querySelector("#hero-video");
 const videoPlay = document.querySelector("#video-play");
+const videoAlternatives = document.querySelector(".video-alternatives");
 
-videoPlay?.addEventListener("click", () => {
-  if (!heroVideoFrame || !heroVideoFrame.dataset.src) {
+heroVideo?.addEventListener("playing", () => {
+  if (videoPlay) {
+    videoPlay.hidden = true;
+  }
+});
+
+heroVideo?.addEventListener("pause", () => {
+  if (videoPlay && heroVideo.currentTime === 0) {
+    videoPlay.hidden = false;
+  }
+});
+
+heroVideo?.addEventListener("error", () => {
+  if (videoPlay) {
+    videoPlay.hidden = true;
+  }
+
+  videoAlternatives?.classList.add("is-emphasized");
+});
+
+videoPlay?.addEventListener("click", async () => {
+  if (!heroVideo) {
     return;
   }
 
-  if (!heroVideoFrame.src) {
-    heroVideoFrame.src = heroVideoFrame.dataset.src;
+  try {
+    await heroVideo.play();
+  } catch (error) {
+    videoAlternatives?.classList.add("is-emphasized");
   }
-
-  heroVideoFrame.hidden = false;
-
-  if (videoPoster) {
-    videoPoster.hidden = true;
-  }
-
-  videoPlay.hidden = true;
 });
