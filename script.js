@@ -259,42 +259,11 @@ camperTabs.forEach((tab, tabIndex) => {
 
 activateTab("specifications-content");
 
-/* Видео: автозапуск с резервной кнопкой */
+/* Видео загружается только после действия пользователя. */
 
 const heroVideo = document.querySelector("#hero-video");
 const videoPlay = document.querySelector("#video-play");
 const videoMessage = document.querySelector("#video-message");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-async function tryToPlayVideo() {
-  if (!heroVideo) {
-    return;
-  }
-
-  heroVideo.muted = true;
-
-  if (reduceMotion.matches) {
-    if (videoPlay) {
-      videoPlay.hidden = false;
-    }
-
-    return;
-  }
-
-  try {
-    await heroVideo.play();
-
-    if (videoPlay) {
-      videoPlay.hidden = true;
-    }
-  } catch (error) {
-    if (videoPlay) {
-      videoPlay.hidden = false;
-    }
-  }
-}
-
-heroVideo?.addEventListener("canplay", tryToPlayVideo, { once: true });
 
 heroVideo?.addEventListener("playing", () => {
   if (videoPlay) {
@@ -303,6 +272,12 @@ heroVideo?.addEventListener("playing", () => {
 
   if (videoMessage) {
     videoMessage.hidden = true;
+  }
+});
+
+heroVideo?.addEventListener("pause", () => {
+  if (videoPlay && heroVideo.currentTime === 0) {
+    videoPlay.hidden = false;
   }
 });
 
@@ -321,6 +296,8 @@ videoPlay?.addEventListener("click", async () => {
     return;
   }
 
+  heroVideo.muted = true;
+
   try {
     await heroVideo.play();
   } catch (error) {
@@ -329,7 +306,3 @@ videoPlay?.addEventListener("click", async () => {
     }
   }
 });
-
-if (heroVideo?.readyState >= 3) {
-  tryToPlayVideo();
-}
