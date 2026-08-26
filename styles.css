@@ -1,6 +1,8 @@
 :root {
   --color-primary: #173c32;
   --color-primary-light: #245548;
+  --color-brand-header: #b9d9ce;
+  --color-header-text: #173c32;
   --color-background: #f5f1e8;
   --color-surface: #e6d8bf;
   --color-accent: #c9693f;
@@ -94,24 +96,61 @@ video:focus-visible,
   left: 0;
   z-index: 50;
   width: 100%;
+  color: var(--color-header-text);
+  background: var(--color-brand-header);
+  box-shadow: 0 12px 34px rgba(23, 60, 50, 0.08);
+}
+
+.header::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  height: 88px;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(185, 217, 206, 0.98) 0%,
+    rgba(185, 217, 206, 0.58) 42%,
+    rgba(185, 217, 206, 0) 100%
+  );
 }
 
 .header__inner {
-  min-height: 96px;
+  position: relative;
+  z-index: 1;
+  min-height: 112px;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(23, 60, 50, 0.15);
 }
 
 .logo {
-  flex: 0 0 auto;
-  margin-right: 24px;
-  color: var(--color-white);
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.05em;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 22px;
   text-decoration: none;
+}
+
+.logo__image {
+  width: 130px;
+  height: 95px;
+  flex: 0 0 130px;
+  display: block;
+  overflow: hidden;
+  background: var(--color-brand-header);
+  border-radius: 18px;
+  filter: drop-shadow(0 8px 16px rgba(23, 60, 50, 0.12));
+}
+
+.logo__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .navigation {
@@ -127,7 +166,7 @@ video:focus-visible,
   align-items: center;
   gap: 7px;
   padding: 10px 12px;
-  color: var(--color-white);
+  color: var(--color-header-text);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.2;
@@ -141,7 +180,7 @@ video:focus-visible,
 
 .navigation__button:hover,
 .navigation__button[aria-expanded="true"] {
-  background: rgba(255, 255, 255, 0.13);
+  background: rgba(23, 60, 50, 0.12);
 }
 
 .navigation__button span {
@@ -167,7 +206,7 @@ video:focus-visible,
   justify-content: center;
   gap: 8px;
   padding: 10px 15px;
-  color: var(--color-white);
+  color: var(--color-header-text);
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
@@ -184,7 +223,7 @@ video:focus-visible,
 }
 
 .manager-link--phone {
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(23, 60, 50, 0.48);
 }
 
 .manager-link--phone:hover {
@@ -194,7 +233,7 @@ video:focus-visible,
 
 .manager-link--avito {
   color: var(--color-primary);
-  background: var(--color-background);
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .manager-link--avito:hover {
@@ -210,6 +249,12 @@ video:focus-visible,
   align-items: center;
   background-color: var(--color-primary);
   background-image:
+    linear-gradient(
+      180deg,
+      rgba(185, 217, 206, 0.82) 0%,
+      rgba(185, 217, 206, 0.28) 18%,
+      rgba(185, 217, 206, 0) 36%
+    ),
     linear-gradient(
       90deg,
       rgba(13, 39, 32, 0.88) 0%,
@@ -440,7 +485,7 @@ video:focus-visible,
   bottom: 16px;
   z-index: 2;
   padding: 8px 12px;
-  color: var(--color-white);
+  color: var(--color-header-text);
   font-size: 12px;
   font-weight: 700;
   background: rgba(10, 30, 24, 0.72);
@@ -778,7 +823,7 @@ video:focus-visible,
 
 @media (max-width: 1240px) {
   .header {
-    background: linear-gradient(180deg, rgba(10, 31, 25, 0.92), rgba(10, 31, 25, 0.72));
+    background: var(--color-brand-header);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
@@ -792,6 +837,12 @@ video:focus-visible,
 
   .logo {
     margin-right: 0;
+  }
+
+  .logo__image {
+    width: 116px;
+    height: 84px;
+    flex-basis: 116px;
   }
 
   .navigation {
@@ -809,12 +860,12 @@ video:focus-visible,
     padding-inline: 8px;
     text-align: center;
     white-space: normal;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(23, 60, 50, 0.08);
   }
 
   .navigation__button:hover,
   .navigation__button[aria-expanded="true"] {
-    background: rgba(255, 255, 255, 0.19);
+    background: rgba(23, 60, 50, 0.15);
   }
 
   .manager-links {
@@ -865,8 +916,11 @@ video:focus-visible,
     padding-block: 10px;
   }
 
-  .logo {
-    font-size: 23px;
+  .logo__image {
+    width: 96px;
+    height: 70px;
+    flex-basis: 96px;
+    border-radius: 14px;
   }
 
   .navigation {
@@ -893,6 +947,12 @@ video:focus-visible,
 
   .hero {
     background-image:
+      linear-gradient(
+        180deg,
+        rgba(185, 217, 206, 0.88) 0%,
+        rgba(185, 217, 206, 0.24) 22%,
+        rgba(185, 217, 206, 0) 42%
+      ),
       linear-gradient(
         180deg,
         rgba(13, 39, 32, 0.35) 0%,
